@@ -111,7 +111,7 @@ int main(int argc, char const *argv[])
          ingresoDeInventario();
          break;
          case 3:
-         cout<<"Escogistes 3";
+         salidaDeInventario();
          break;
 
          default:
