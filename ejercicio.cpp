@@ -25,7 +25,7 @@ cout<<endl;
 
 for (int i = 0; i < 5; i++)
 {
- cout << productos[i][0] << " " << productos[i][1] << " " << productos[i][2]<<endl; 
+ cout << productos[i][0] << " | " << productos[i][1] << " | " << productos[i][2]<<endl; 
 }
 }
 
@@ -61,6 +61,24 @@ cout<<endl;
   movimientoInventario(codigo,cantidad, "+");
 }
 
+void salidaDeInventario(){
+  string codigo = "";
+int cantidad = 0;
+system("cls");
+cout<<endl;
+cout<<"Salida de Productos al Inventario";
+cout<<endl;
+cout<<"**********************************";
+cout<<endl;
+cout<<"Ingrese el codigo del producto: ";
+cin >> codigo;
+cout<<endl;
+cout<<"Ingrese el codigo del producto: ";
+cin >> cantidad;
+cout<<endl;
+
+  movimientoInventario(codigo,cantidad, "- ");
+}
 int main(int argc, char const *argv[])
 {
     int opcion = 0;
@@ -76,7 +94,7 @@ int main(int argc, char const *argv[])
     cout<<endl;
     cout<<"1. -Productos"<<endl;
     cout<<"2. -Ingreso de inventario"<<endl;
-    cout<<"3. -Salidad de Inventario"<<endl;
+    cout<<"3. -Salida de Inventario"<<endl;
     cout<<"0. -Salir"<<endl;
     cout<<"*********************";
     cout<<endl;
