@@ -4,7 +4,7 @@
 using namespace std;
 
 
-string libros[2][3];
+string libros[3][3];
 
 void cargarLibros(){
    libros[0][0] = "Algoritmos";
@@ -13,7 +13,11 @@ void cargarLibros(){
 
    libros[1][0] = "Base de datos";
    libros[1][1] = "Apuntes de Base de Datos 1";
-   libros[1][2] = "El pepe";
+   libros[1][2] = "Eva Gomez";
+   
+   libros[2][0] = "Base de datos";
+   libros[2][1] = "Apuntes de Base de Datos 2";
+   libros[2][2] = "Eva Gomeza";
 }
 
 int main(int argc, char const *argv[])
@@ -28,9 +32,9 @@ int main(int argc, char const *argv[])
     {
         string buscar = "";
         system("cls");
-        cout<<"Ingrese la descripcion o el autor del libro que busca: ";
+        cout<<"Ingrese la descripcion del libro que busca: ";
         cin>>buscar;
-        //busqueda
+        //busqueda por descripcion
         for (int i = 0; i < 3; i++)
         {
             string libro = libros [i][1];
@@ -52,10 +56,30 @@ int main(int argc, char const *argv[])
                 cout<<"Sugerencia 2: "<< libros[sugerencia2][1]<<endl;
                 cout<<"Sugerencia 3: "<< libros[sugerencia3][1]<<endl;
                 salir = true;
+                break;
             }
             
         }
-        
+        //Busqueda por autor
+            cout<<endl;
+            string buscarautor = "";
+            cout<<"Ingrese el autor del libro que busca: ";
+            cin>>buscarautor;
+         for (int i = 0; i < 3; i++)
+        {
+            string libro = libros [i][2];
+            string descripcion = libros [i][1];
+            string libroenminuscuala = libro;
+            // Transformar a minuscula los string buscar y libro//
+            transform(libroenminuscuala.begin(), libroenminuscuala.end(), libroenminuscuala.begin(), ::tolower);
+            transform(buscarautor.begin(), buscarautor.end(), buscarautor.begin(), ::tolower);
+
+            if (libroenminuscuala.find(buscarautor) != string::npos )
+            {
+                cout<<"Autor encontrado: "<< libro <<endl; 
+                cout<<"Autor del libro: "<< descripcion <<endl;
+            }
+        }
         if (salir == false)
         {
             char continuar = 'n';
